@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Reportuj{% endblock title %}
+{% block slider %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+  <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+  <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+</ol>
+<div class="carousel-inner" role="listbox">
+ <div class="item">
+   <img class="first-slide" src="img/slide1.png" alt="Jednorozec">
+   <div class="container">
+     <div class="carousel-caption">
+       <h1>Vítejte na mém webu!</h1>
+       <p>Mám rada jednorožce :)</p>
+     </div>
+   </div>
+ </div>
+ <div class="item active">
+   <img class="second-slide" src="img/slide2.png" alt="Panda">
+   <div class="container">
+     <div class="carousel-caption">
+       <h1>Myslíš že se naučím HTML?</h1>
+       <p>Budu muset.</p>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+{% endblock slider %}
+{% block content %}
+  <h1>Vlož svoje data z přehledů!</h1>
+  <p>{{chces}}</p>
+{% endblock content %}
