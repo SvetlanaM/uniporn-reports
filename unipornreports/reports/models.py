@@ -2,7 +2,7 @@ from django.db import models
 from users.models import User
 
 class CSV(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, blank = True, null = True)
     uploaded_csv1 = models.FileField(upload_to = '.')
     uploaded_csv2 = models.FileField(upload_to = '.')
     created = models.DateTimeField(auto_now_add = True, auto_now = False)
