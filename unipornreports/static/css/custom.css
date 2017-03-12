@@ -1,0 +1,164 @@
+body {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+nav.navbar.navbar-inverse.navbar-fixed-top {
+  background: #ffe780 !important;
+  border: none;
+	box-shadow: 0 10px 10px -5px #e4cf72;
+}
+
+.nav-menu li a{
+  color: #11c1ea !important;
+  font-weight: 500;
+}
+
+
+.nav-menu li a:hover {
+  color: #ff7bac !important;
+  font-weight: 500;
+  border-bottom: 5px solid #ff7bac;
+}
+
+.yellow-section {
+  margin-top: 50px;
+  height: 600px;
+  background: #ffe780;
+  position: relative;
+}
+
+.blue-section {
+  background: #11c1ea;
+  height: 700px;
+  padding-bottom: 150px;
+  padding-top: 40px;
+  color: #fff !important;
+}
+
+.pink-section {
+  background: #ff7bac;
+  height: 800px;
+  padding-bottom: 150px;
+  padding-top: 40px;
+  color: #fff !important;
+}
+
+.content-center {
+  height: 850px;
+  width: 850px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+}
+
+.unicorn-img {
+  float: left;
+  margin-top: 100px;
+}
+
+.main-heading {
+  float: left;
+  margin-top: 250px;
+  font-size: 55px;
+}
+
+.blue-heading {
+  font-weight: bold;
+  color: #11c1ea;
+}
+
+.purple-heading {
+  font-weight: bold;
+  color: #ff7bac;
+}
+
+.main-heading .subheading {
+  font-size: 20px;
+  font-weight: 200;
+  margin-top: -80px;
+  color: #ff7bac;
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 300px;
+}
+
+.list-section {
+  margin-top: 50px;
+  font-size: 16px;
+}
+
+.list-styled li {
+  margin-top: 30px;
+}
+
+.list-styled {
+    margin-left: 0;
+    padding-right: 0;
+    list-style-type: none;
+    display: table;
+
+
+}
+
+.list-styled li {
+    counter-increment: step-counter;
+    display: inline-block;
+}
+
+.list-styled li::before {
+    content: counter(step-counter);
+    text-align: justify;
+    font-size: 80%;
+    background-color: #ffe780;
+    color: #ff7bac;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 0px;
+    display: inline-block;
+    margin-right: 25px;
+}
+
+label[for="file"] {
+  background: red;
+  display: block;
+  width: 20px;
+}
+
+input[type="file"] {
+  display: block;
+  color: #ff7bac;
+}
+
+.submit-btn {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  background: #1aad4f;
+}
+
+.btn-section {
+  margin-top: 140px;
+}
+
+.report-btn {
+  background: none;
+  padding: 15px 70px;
+  border: 8px solid #d15d8c;
+  color: #d15d8c;
+  font-size: 30px;
+  font-weight: bold;
+
+}
+
+.text-btn {
+  margin-top: 20px;
+  text-align: left;
+}

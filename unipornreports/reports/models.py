@@ -3,6 +3,8 @@ from users.models import User
 
 class CSV(models.Model):
     user = models.ForeignKey(User, blank = True, null = True)
+    uuid = models.CharField(max_length = 255, blank = True, null = True)
+    ip_address = models.GenericIPAddressField(blank = True, null = True)
     uploaded_csv1 = models.FileField(upload_to = '.')
     uploaded_csv2 = models.FileField(upload_to = '.')
     created = models.DateTimeField(auto_now_add = True, auto_now = False)
