@@ -5,11 +5,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{% endblock title%}</title>
+    <title>UNIPORN REPORTS</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
   </head>
+
   <body>
+<!-- Start MENU-->
     <div class="navbar-wrapper">
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -20,46 +24,112 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Uniporn Reports logo</a>
+            <img class="navbar-brand" href="#" src="img/uniporn-web.jpg"</img>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-left">
-              <li><a href="#myCarousel">O mě</a></li>
-              <li><a href="#join">Zájmy</a></li>
-              <li><a href="#news">Aktualita týdne</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#contact"><img src="img/user-photo.png" class="img-circle" width=30 height=30 />Napište mi</a></li>
+            <ul class="nav navbar-nav navbar-right nav-menu">
+              <li><a href="#manual">NÁVOD</a></li>
+              <li><a href="#report">REPORTUJ</a></li>
+              <li><a href="#dictionary">SLOVNÍK</a></li>
+              <li><a href="#about">KDO JSME</a></li>
+              <li><a href="#contact">PODMÍNKY</a></li>
             </ul>
           </div>
         </div>
       </nav>
   </div>
-
-  {% block slider %}
-  {% endblock slider %}
-  <div class = 'container'>
-  <div id='page-wrapper'>
-    <div class='row'>
-      {% block content %}
-      {% endblock content %}
+<!-- End MENU-->
+<!-- Start Slider-->
+  <div class="container-fluid yellow-section">
+    <div class="content-center">
+      <img class="unicorn-img" src="img/uniporn_slider.png" />
+      <h1 class="main-heading"><span class="blue-heading">UNIPORN</span><br />
+        <span class="purple-heading">REPORTS</span><br />
+        <span class="subheading">REPORTY SOCIÁLNÍCH SÍTÍ</span>
+      </h1>
+    </div>
+  </div>
+<!-- End Slider-->
+<!-- Start Navod-->
+  <div class="container-fluid blue-section" id="manual">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="white-heading">
+            Jak sem nahrát data, aby to vyplivlo ten správnej report?
+          </h2>
+          <p class="info">Aby tahle aplikace šlapala jak má, je tu pár kroků, který musíš udělat. Není jich moc, ale je důležité, aby byly všechny řádně splněny. Jinak by ti tahle apka taky mohla dát nerelevantní data a to nikdo nechce. #ofkórz Připravili jsme pro tebe video návod a vypsali jsme ti tu postup bod po bodu, abys to měl fakt jednoduchý.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 video-section">
+          <h2 class="white-heading">
+            <br/>
+            Video návod
+          </h2>
+          <iframe
+    src="https://www.youtube.com/embed/rYpIwjHku5U">
+          </iframe>
+        </div>
+        <div class="col-md-6 list-section">
+          <ol class="list-styled">
+            <br/>
+            <br/>
+            <li class="section-item">Jdi na Facebooku na stránku, ke které potřebuješ měsíční report.
+            </li>
+            <li class="section-item">Na této stránce jdi na Přehledy.
+            </li>
+            <li class="section-item">Až se ti načtou Přehledy, klikni na "Exportovat data".
+            </li>
+            <li class="section-item">Vyber "Údaje o stránce", období "Minulý měsíc", formát CSV.
+            </li>
+            <li class="section-item">Vyber "Údaje o příspěvku". Období "Minulý měsíc", formát CSV.
+            </li>
+            <li class="section-item">Teď už máš připravené všechny podklady k našemu reportu!
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- End Navod-->
+<!-- Start Reportuj-->
+<div class="row pink-section" id="report">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="white-heading">
+          Reportuj!
+        </h2>
+        <p class="info">Vlož sem 2 CSV. Jedno se týká minulého měsíce celé stránky, druhé zase minulého měsíce příspěvků na tvé stránce. </br>Klikni na dané Procházet a nahrávej! Až nahraješ, stačí dát ten velký button "REPORTUJ"!
+        </p>
+      </div>
+    </div>
+    </br>
+    </br>
+    <div class="inputBtnSection">
+        <input id="uploadFile" class="disableInputField" placeholder="Nahraj CSV z Přehledů o Stránce" disabled="disabled" />
+          <label class="fileUpload">
+            <input id="uploadBtn" type="file" class="upload">
+            <span class="uploadBtn">Procházet</span>
+          </label>
+        </input>
+        </br>
+        <input id="uploadFile" class="disableInputField" placeholder="Nahraj CSV z Přehledů o Příspěvcích" disabled="disabled" />
+          <label class="fileUpload">
+            <input id="uploadBtn" type="file" class="upload">
+            <span class="uploadBtn">Procházet</span>
+            </input>
+          </label>
+        </input>
+      </input>
     </div>
   </div>
 </div>
-<footer class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <ul class="list-inline pull-left">
-            <li>&copy; Andrea Bubníková - 2017</li>
-            <li><a "mailto:andrea.bubnikova@gmail.com">andrea.bubnikova@gmail.com</a></li>
-            <li><a href="https://www.facebook.com/jsemandrea" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
-            <li><a href="https://twitter.com/jsemandrea" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></li>
-            <li><a href="https://linkedin.com/jsemandrea" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></li>
-          </ul>
-          <p class="pull-right"><a href="#">Zase nahoru</a></p>
-        </div>
-      </div>
-  </footer>
+<!-- End Navod-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js">
   </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
