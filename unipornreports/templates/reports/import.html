@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+  <div class = 'container-fluid pink-section' id="report">
+    <div class="container">
+      <div class='row'>
+        <div class="col-md-12 form-container">
+          <form action="" method = "POST" role="form", enctype="multipart/form-data">
+            {% csrf_token %}
+            <br />
+            <div class="row">
+              <div class="col-md-9">
+                Do hodky zaciname! ;) dekujuuuu #Keboola Petr Simecek Pavel Dolezal Em Smith Martin Matějka Jakub Turner Tomáš Ferko Zu Bednářová Svetlana Margetová a vsichni dalsi Keboolaci.
+              </div>
+              <div class="col-md-2">
+
+                {{ form.uploaded_csv1 }}
+
+              </div>
+            </div>
+            <br />
+            <br />
+            <div class="row">
+              <div class="col-md-9">
+                Do hodky zaciname! ;) dekujuuuu #Keboola Petr Simecek Pavel Dolezal Em Smith Martin Matějka Jakub Turner Tomáš Ferko Zu Bednářová Svetlana Margetová a vsichni dalsi Keboolaci.
+              </div>
+              <div class="col-md-2">{{ form.uploaded_csv2 }}</div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-md-9">
+                Do hodky zaciname! ;) dekujuuuu #Keboola Petr Simecek Pavel Dolezal Em Smith Martin Matějka Jakub Turner Tomáš Ferko Zu Bednářová Svetlana Margetová a vsichni dalsi Keboolaci.
+              </div>
+              <div class="col-md-3">
+
+                <input type="submit" class="submit-btn" value="Nahrat" />
+
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <div class="row text-center btn-section">
+        <div class="col-md-offset-4 col-md-4">
+          <button class="report-btn">REPORTOVANO</button>
+          <p class="text-btn">
+            Do hodky zaciname! ;) dekujuuuu #Keboola Petr Simecek Pavel Dolezal Em Smith Martin Matějka Jakub Turner Tomáš Ferko Zu Bednářová Svetlana Margetová a vsichni dalsi Keboolaci.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

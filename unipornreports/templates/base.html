@@ -8,8 +8,8 @@
     <title>UNIPORN REPORTS</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css" type="text/css">
+
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
   </head>
 
   <body>
@@ -41,18 +41,15 @@
       </nav>
   </div>
 <!-- End MENU-->
-<!-- Start Slider-->
   <div class="container-fluid yellow-section">
     <div class="content-center">
-      <img class="unicorn-img" src="img/uniporn_slider.png" />
+      <img class="unicorn-img" src="{% static 'img/unicorn.png' %}" />
       <h1 class="main-heading"><span class="blue-heading">UNIPORN</span><br />
         <span class="purple-heading">REPORTS</span><br />
-        <span class="subheading">REPORTY SOCIÁLNÍCH SÍTÍ</span>
+        <span class="subheading">REPORTY SOCIALNYCH SITI</span>
       </h1>
     </div>
   </div>
-<!-- End Slider-->
-<!-- Start Navod-->
   <div class="container-fluid blue-section" id="manual">
     <div class="container">
       <div class="row">
@@ -97,39 +94,8 @@
   </div>
 <!-- End Navod-->
 <!-- Start Reportuj-->
-<div class="row pink-section" id="report">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="white-heading">
-          Reportuj!
-        </h2>
-        <p class="info">Vlož sem 2 CSV. Jedno se týká minulého měsíce celé stránky, druhé zase minulého měsíce příspěvků na tvé stránce. </br>Klikni na dané Procházet a nahrávej! Až nahraješ, stačí dát ten velký button "REPORTUJ"!
-        </p>
-      </div>
-    </div>
-    </br>
-    </br>
-    <div class="inputBtnSection">
-        <input id="uploadFile" class="disableInputField" placeholder="Nahraj CSV z Přehledů o Stránce" disabled="disabled" />
-          <label class="fileUpload">
-            <input id="uploadBtn" type="file" class="upload">
-            <span class="uploadBtn">Procházet</span>
-          </label>
-        </input>
-        </br>
-        <input id="uploadFile" class="disableInputField" placeholder="Nahraj CSV z Přehledů o Příspěvcích" disabled="disabled" />
-          <label class="fileUpload">
-            <input id="uploadBtn" type="file" class="upload">
-            <span class="uploadBtn">Procházet</span>
-            </input>
-          </label>
-        </input>
-      </input>
-    </div>
-  </div>
-</div>
-<!-- End Navod-->
+  {% block content %}
+  {% endblock content %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js">
   </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">

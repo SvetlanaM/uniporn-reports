@@ -32,5 +32,7 @@
 {% endblock slider %}
 {% block content %}
   <h1>Vlož svoje data z přehledů!</h1>
-  <p>{{chces}}</p>
+  {{ user }}
+  {{ session }}
+  {{ mydesc | safe }}
 {% endblock content %}
