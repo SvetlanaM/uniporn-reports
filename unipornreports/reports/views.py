@@ -9,16 +9,19 @@ from ipware.ip import get_ip
 
 def base_view(request):
     ip = get_ip(request)
-    csvs = CSV.objects.filter(ip_address = ip)[:2]
+    csvs = CSV.objects.filter(ip_address = ip)
+    csvs.reverse()
+    csvs = csvs[1:]
     for c in csvs:
         print (c.uploaded_csv1)
         print (c.uploaded_csv2)
-    df=pd.read_csv('http://127.0.0.1:8000/app/static/media/Facebook_Insights_Data_Export_-_UniCredit_Bank_Ceska_republika_-_2017-03-03_ChWJpXG.csv')
+
+    df=pd.read_csv('http://127.0.0.1:8000/app/static/media/' + str(c.uploaded_csv1))
     dfd=df.head()
     user=request.user  # can be anonymous user
     session=request.session.session_key
     ctx={'mydesc':dfd.to_html(), 'user': user, 'session' : session}
-    return render(request, 'index.html', ctx)
+    return render(request, 'reports/graf.html', ctx)
 
 
 def add_csv(request):
@@ -35,7 +38,7 @@ def add_csv(request):
                 ip_address = get_ip(request)
             )
             csv.save()
-            return HttpResponseRedirect(reverse('index'))
+            return HttpResponseRedirect(reverse('results'))
     else:
         form = CSVForm
     context = {'form' : form}

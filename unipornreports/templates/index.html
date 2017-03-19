@@ -1,38 +1,57 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block title %}Reportuj{% endblock title %}
-{% block slider %}
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-<ol class="carousel-indicators">
-  <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-  <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-</ol>
-<div class="carousel-inner" role="listbox">
- <div class="item">
-   <img class="first-slide" src="img/slide1.png" alt="Jednorozec">
-   <div class="container">
-     <div class="carousel-caption">
-       <h1>Vítejte na mém webu!</h1>
-       <p>Mám rada jednorožce :)</p>
-     </div>
-   </div>
- </div>
- <div class="item active">
-   <img class="second-slide" src="img/slide2.png" alt="Panda">
-   <div class="container">
-     <div class="carousel-caption">
-       <h1>Myslíš že se naučím HTML?</h1>
-       <p>Budu muset.</p>
-     </div>
-   </div>
- </div>
+{% block index %}
+<div class="container-fluid yellow-section">
+  <div class="content-center">
+    <img class="unicorn-img" src="{% static 'img/uniporn_slider.png' %}" />
+    <h1 class="main-heading"><span class="blue-heading">UNIPORN</span><br />
+      <span class="purple-heading">REPORTS</span><br />
+      <span class="subheading">REPORTY SOCIALNYCH SITI</span>
+    </h1>
+  </div>
 </div>
+<div class="container-fluid blue-section" id="manual">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="white-heading">
+          Jak sem nahrát data, aby to vyplivlo ten správnej report?
+        </h2>
+        <p class="info">Aby tahle aplikace šlapala jak má, je tu pár kroků, který musíš udělat. Není jich moc, ale je důležité, aby byly všechny řádně splněny. Jinak by ti tahle apka taky mohla dát nerelevantní data a to nikdo nechce. #ofkórz Připravili jsme pro tebe video návod a vypsali jsme ti tu postup bod po bodu, abys to měl fakt jednoduchý.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 video-section">
+        <h2 class="white-heading">
+          <br/>
+          Video návod
+        </h2>
+        <iframe
+  src="https://www.youtube.com/embed/rYpIwjHku5U">
+        </iframe>
+      </div>
+      <div class="col-md-6 list-section">
+        <ol class="list-styled">
+          <br/>
+          <br/>
+          <li class="section-item">Jdi na Facebooku na stránku, ke které potřebuješ měsíční report.
+          </li>
+          <li class="section-item">Na této stránce jdi na Přehledy.
+          </li>
+          <li class="section-item">Až se ti načtou Přehledy, klikni na "Exportovat data".
+          </li>
+          <li class="section-item">Vyber "Údaje o stránce", období "Minulý měsíc", formát CSV.
+          </li>
+          <li class="section-item">Vyber "Údaje o příspěvku". Období "Minulý měsíc", formát CSV.
+          </li>
+          <li class="section-item">Teď už máš připravené všechny podklady k našemu reportu!
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
 </div>
-{% endblock slider %}
-{% block content %}
-  <h1>Vlož svoje data z přehledů!</h1>
-  {{ user }}
-  {{ session }}
-  {{ mydesc | safe }}
-{% endblock content %}
+<!-- End Navod-->
+{% endblock index %}

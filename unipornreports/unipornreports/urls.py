@@ -7,4 +7,5 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', add_csv, name ='index'),
+    url(r'^results/$', base_view, name='results'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
