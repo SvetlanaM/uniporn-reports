@@ -14,6 +14,7 @@
   </head>
 
   <body>
+
 <!-- Start MENU-->
     <div class="navbar-wrapper">
       <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -33,9 +34,8 @@
             <ul class="nav navbar-nav navbar-right nav-menu">
               <li><a href="#manual">NÁVOD</a></li>
               <li><a href="#report">REPORTUJ</a></li>
-              <li><a href="#dictionary">SLOVNÍK</a></li>
               <li><a href="#about">KDO JSME</a></li>
-              <li><a href="#contact">PODMÍNKY</a></li>
+              <li><a href="#contact">KONTAKT</a></li>
             </ul>
           </div>
         </div>
@@ -49,28 +49,47 @@
 <!-- Start Reportuj-->
   {% block content %}
   {% endblock content %}
+
+  {% block index2 %}
+  {% endblock index2 %}
+
+  <footer class="container-fluid" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="footer-text">
+          <ul class="list-inline pull-left">
+            <li><img class="img-responsive" src="{% static 'img/facebook_footer.png' %}" /></li>
+            <li><img class="img-responsive" src="{% static 'img/twitter_footer.png' %}" /></li>
+            <li><img class="img-responsive" src="{% static 'img/linkedin_footer.png' %}" /></li>
+          </ul>
+          <br />
+          <br />
+          andrea.bubnikova@gmail.com<br />
+          +420 775 153 333
+          <p class="pull-right">&copy; 2017 Andrea Bubnikova AHR group</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<!-- End Footer-->
+
   <script src="{% static 'js/Chart.js' %}"></script>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js">
   </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
   </script>
 
+
+
   {% block js %}
   {% endblock js %}
+
+
 <!-- Start Footer-->
-  <footer class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <ul class="list-inline pull-left">
-            <li>&copy; Andrea Bubníková - 2017</li>
-            <li><a "mailto:andrea.bubnikova@gmail.com">email: andrea.bubnikova@gmail.com</a></li>
-            <li><a href="https://www.facebook.com/unipornreports" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
-          </ul>
-          <p class="pull-right"><a href="#">Zase nahoru</a></p>
-        </div>
-      </div>
-<!-- End Footer-->
+
 
   </body>
   </html>

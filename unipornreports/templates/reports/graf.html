@@ -2,41 +2,151 @@
 {% load staticfiles %}
 
 {% block content %}
-<canvas id="myChart" width="400" height="400"></canvas>
-{{ mydesc | safe }}
+
+<div class="container-fluid header">
+  <div class="graph-heading text-center">
+    <h2 class="report-heading-main"><img src="{% static 'img/uniporn_slider-03.png' %}" width=200 />
+      REPORT STRANKY UNICREDIT BANK ZA MINULE OBDOBIE</h2>
+  </div>
+</div>
+<div class="wrapper container">
+<div class="fans">
+  <div class="col-md-12 pull-left report-box">
+    <h3 class="report-heading">Fans stranky</h3>
+  </div>
+  <div class="col-md-6 graph-part">
+    <div class="col-md-6 report1 text-center">
+      <span class="number text-center">{{ fans_sum }}</span> <br />
+      fanusikov
+    </div>
+    <div class="col-md-6 report1 text-center">
+      <span class="number text-center">{{ fans_progres }}</span><br />
+      narast fans
+    </div>
+  </div>
+  <div class="col-md-6 graph-part">
+    <canvas id="myChart" height="200"></canvas>
+  </div>
+</div>
+
+<div class="fans">
+  <div class="col-md-12 pull-left report-box">
+    <h3 class="report-heading">Fans online stranky</h3>
+  </div>
+  <div class="col-md-6 graph-part">
+    <p class="report-text">Some text</p>
+  </div>
+  <div class="col-md-6 graph-part">
+    <canvas id="myChartOnline" height="200"></canvas>
+  </div>
+</div>
+
+<div class="fans">
+  <div class="col-md-12 pull-left report-box">
+    <h3 class="report-heading">Zobrazeni obsahu stranky vs. unikatny zasah</h3>
+  </div>
+  <div class="col-md-6 graph-part">
+    <p class="report-text">Some text</p>
+  </div>
+  <div class="col-md-6 graph-part">
+    <canvas id="myChart6" height="200"></canvas>
+  </div>
+</div>
+
+<div class="fans">
+  <div class="col-md-12 pull-left report-box">
+    <h3 class="report-heading">Vysledky publikovanych postov</h3>
+  </div>
+  <div class="col-md-6 image-part">
+    <script src="//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.5"
+        async></script>
+    <div class="fb-post"
+        data-href="{{ post_image }}"
+        data-width="500"></div>
+  </div>
+  <div class="col-md-6 graph-part">
+    <p class="data"><span class="number2">{{ eng_rate_post | floatformat:-2 }} % </span>engagement rate</p>
+    <p class="data"><span class="number2">{{ stories_rate_post | floatformat:-2 }} % </span>stories rate posts</p>
+    <p class="data"><span class="number2">{{ cons_rate_post | floatformat:-2 }} % </span>consumption_rate_post</p>
+    <ul class="list-inline mini-data">
+      <li><img src="{% static 'img/calendar-icon.png' %}" />{{ story_date }}</li>
+      <li><img src="{% static 'img/char-icon.png' %}" />{{ story_len }} znaku</li>
+      <li><img src="{% static 'img/box-icon.png' %}" />{{ type }} type</li>
+    </ul>
+  </div>
+  <div class="col-md-12 eng-part text-center">
+    <p>{{ eng_post }} engagment celkom</p>
+    <ul class="list-inline mini-data">
+      <li>{{ story_comment  | floatformat:-2 }}  % komentovatelnost</li>
+      <li>{{ story_click  | floatformat:-2 }} % klikatelnost</li>
+      <li>{{ story_share  | floatformat:-2 }} % sdilitelnost</li>
+      <li>{{ story_fav  | floatformat:-2 }} % oblibenost</li>
+    </ul>
+  </div>
+  <div class="col-md-6 graph-part">
+    <canvas id="myChart4" height="200"></canvas>
+  </div>
+  <div class="col-md-6 graph-part">
+    <canvas id="myChart7" height="200"></canvas>
+
+  </div>
+</div>
+
+
+
+<input type="hidden" id="myVar" name="variable" value="{{ dates2 | safe}}">
+<input type="hidden" id="myVar7" name="variable" value="{{ fans_all2 | safe}}">
+<input type="hidden" id="myVar2" name="variable" value="{{ fans_online2 | safe }}">
+<input type="hidden" id="myVar3" name="variable" value="{{ pay_reach | safe }}">
+<input type="hidden" id="myVar4" name="variable" value="{{ organic_reach | safe }}">
+<input type="hidden" id="myVar5" name="variable" value="{{ full_reach2 | safe }}">
+<input type="hidden" id="myVar6" name="variable" value="{{ full_seen2 | safe }}">
+<input type="hidden" id="myVar8" name="variable" value="{{ zobrazeniorganicky_prispevek | safe }}">
+<input type="hidden" id="myVar9" name="variable" value="{{ zobrazeniorganicky_prispevek2 | safe }}">
+</div>
+
+
 {% endblock content %}
 
 
 
 {% block js %}
 
+
+
+
 <script>
+var a = document.getElementById("myVar").value
+a = a.split(",")
+a = a.slice(2)
+var b = document.getElementById("myVar7").value;
+b = b.split(",")
+b = b.slice(2)
 var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      labels: a,
       datasets: [{
-          label: '# of Votes',
+        label: "Number of fans",
           fill: false,
-          lineTension: 0.1,
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-              'rgba(255,99,132,1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-              'rgba(255, 159, 64, 1)'
-          ],
+          lineTension: 0.8,
+          backgroundColor: "#ff7bac",
+          borderColor: "#ff7bac",
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: "#ff7bac",
+          pointBackgroundColor: "#fff",
+          pointBorderWidth: 5,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "#ff7bac",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBorderWidth: 5,
+          pointRadius: 1,
+          pointHitRadius: 40,
+          data: b,
           borderWidth: 1
       }]
   },
@@ -48,6 +158,174 @@ var myChart = new Chart(ctx, {
               }
           }]
       }
+  }
+});
+</script>
+
+<script>
+var a = document.getElementById("myVar").value
+a = a.split(",")
+a = a.slice(2)
+var b = document.getElementById("myVar2").value;
+b = b.split(",")
+b = b.slice(2)
+var ctx = document.getElementById("myChartOnline");
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+      labels: a,
+      datasets: [{
+        label: "Number of fans",
+          fill: false,
+          lineTension: 0.8,
+          backgroundColor: "#ff7bac",
+          borderColor: "#ff7bac",
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: "#ff7bac",
+          pointBackgroundColor: "#fff",
+          pointBorderWidth: 5,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "#ff7bac",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBorderWidth: 5,
+          pointRadius: 1,
+          pointHitRadius: 40,
+          data: b,
+          borderWidth: 1
+      }]
+  },
+  options: {
+      scales: {
+          yAxes: [{
+              ticks: {
+                  beginAtZero:true
+              }
+          }]
+      }
+  }
+});
+</script>
+
+<script>
+var a = document.getElementById("myVar3").value
+var b = document.getElementById("myVar4").value
+var ctx = document.getElementById("myChart4");
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: [
+        "Organic reach",
+        "Pay reach"
+    ],
+    datasets: [
+        {
+            data: [a, b],
+            backgroundColor: [
+                "#ff7bac",
+                "#11c1ea"
+            ],
+            hoverBackgroundColor: [
+                "#ff7bac",
+                "#11c1ea"
+            ]
+        }]
+      }
+
+});
+</script>
+
+<script>
+var a = document.getElementById("myVar8").value
+var b = document.getElementById("myVar9").value
+var ctx = document.getElementById("myChart7");
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: [
+        "Organice zobrazeni",
+        "Platene zobrazeni"
+    ],
+    datasets: [
+        {
+            data: [a, b],
+            backgroundColor: [
+                "#ff7bac",
+                "#11c1ea"
+            ],
+            hoverBackgroundColor: [
+                "#ff7bac",
+                "#11c1ea"
+            ]
+        }]
+      }
+
+});
+</script>
+<script>
+var a = document.getElementById("myVar").value
+a = a.split(",")
+a = a.slice(2)
+console.log(a)
+var b = document.getElementById("myVar5").value
+b = b.split(",")
+b = b.slice(2)
+var c = document.getElementById("myVar6").value
+c = c.split(",")
+c = c.slice(2)
+var ctx = document.getElementById("myChart6");
+var myBarChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: a,
+    datasets: [
+      {
+        label: "full reach",
+          fill: false,
+          lineTension: 0.8,
+          backgroundColor: "#ff7bac",
+          borderColor: "#ff7bac",
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: "#ff7bac",
+          pointBackgroundColor: "#fff",
+          pointBorderWidth: 5,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "#ff7bac",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBorderWidth: 5,
+          pointRadius: 1,
+          pointHitRadius: 40,
+          data: b,
+          borderWidth: 1
+      },
+      {
+        label: "full seen",
+          fill: false,
+          lineTension: 0.8,
+          backgroundColor: "#11c1ea",
+          borderColor: "#11c1ea",
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: "#11c1ea",
+          pointBackgroundColor: "#fff",
+          pointBorderWidth: 5,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "#11c1ea",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBorderWidth: 5,
+          pointRadius: 1,
+          pointHitRadius: 40,
+          data: c,
+          borderWidth: 1
+      }
+    ]
   }
 });
 </script>
