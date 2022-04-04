@@ -2,94 +2,111 @@
 
 <!DOCTYPE html>
 <html lang="cs">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UNIPORN REPORTS</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="icon" type="image/png" href="https://trello-attachments.s3.amazonaws.com/52589bca65b0b14e1d004d94/581efa2dafc1d1f2ca807a35/499538401db91951593f0cdf04834a0a/favicon.ico">
-    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>UNIPORN REPORTS</title>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+			integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://trello-attachments.s3.amazonaws.com/52589bca65b0b14e1d004d94/581efa2dafc1d1f2ca807a35/499538401db91951593f0cdf04834a0a/favicon.ico"
+		/>
+		<link href="{% static 'css/custom.css' %}" rel="stylesheet" />
+	</head>
+	<body>
+		<!-- Start MENU-->
+		<div class="navbar-wrapper">
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button
+							type="button"
+							class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#navbar"
+							aria-expanded="false"
+							aria-controls="navbar"
+						>
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a href="{% url 'index' %}"
+							><img
+								class="navbar-brand"
+								src="{% static 'img/uniporn-web.jpg' %}"
+						/></a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav navbar-left"> </ul>
+						<ul class="nav navbar-nav navbar-right nav-menu">
+							<li><a href="#manual">NÁVOD</a></li>
+							<li><a href="#report">REPORTUJ</a></li>
+							<li><a href="#about">KDO JSME</a></li>
+							<li><a href="#contact">KONTAKT</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<!-- End MENU-->
 
-  </head>
+		{% block index %} {% endblock index %}
+		<!-- Start Reportuj-->
+		{% block content %} {% endblock content %} {% block index2 %} {% endblock
+		index2 %}
 
-  <body>
+		<footer class="container-fluid" id="contact">
+			<div class="container">
+				<div class="row">
+					<div class="footer-text">
+						<ul class="list-inline pull-left">
+							<li
+								><img
+									class="img-responsive"
+									src="{% static 'img/facebook_footer.png' %}"
+							/></li>
+							<li
+								><img
+									class="img-responsive"
+									src="{% static 'img/twitter_footer.png' %}"
+							/></li>
+							<li
+								><img
+									class="img-responsive"
+									src="{% static 'img/linkedin_footer.png' %}"
+							/></li>
+						</ul>
+						<br />
+						<br />
+						andrea.bubnikova@gmail.com<br />
+						+420 775 153 333
+						<p class="pull-right">&copy; 2017 Andrea Bubnikova AHR group</p>
+					</div>
+				</div>
+			</div>
+		</footer>
 
-<!-- Start MENU-->
-    <div class="navbar-wrapper">
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a href="{% url 'index' %}"><img class="navbar-brand" src="{% static 'img/uniporn-web.jpg' %}" /></a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-left">
-            </ul>
-            <ul class="nav navbar-nav navbar-right nav-menu">
-              <li><a href="#manual">NÁVOD</a></li>
-              <li><a href="#report">REPORTUJ</a></li>
-              <li><a href="#about">KDO JSME</a></li>
-              <li><a href="#contact">KONTAKT</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-  </div>
-<!-- End MENU-->
-
-{% block index %}
-
-{% endblock index %}
-<!-- Start Reportuj-->
-  {% block content %}
-  {% endblock content %}
-
-  {% block index2 %}
-  {% endblock index2 %}
-
-  <footer class="container-fluid" id="contact">
-    <div class="container">
-      <div class="row">
-        <div class="footer-text">
-          <ul class="list-inline pull-left">
-            <li><img class="img-responsive" src="{% static 'img/facebook_footer.png' %}" /></li>
-            <li><img class="img-responsive" src="{% static 'img/twitter_footer.png' %}" /></li>
-            <li><img class="img-responsive" src="{% static 'img/linkedin_footer.png' %}" /></li>
-          </ul>
-          <br />
-          <br />
-          andrea.bubnikova@gmail.com<br />
-          +420 775 153 333
-          <p class="pull-right">&copy; 2017 Andrea Bubnikova AHR group</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-<!-- End Footer-->
-
-  <script src="{% static 'js/Chart.js' %}"></script>
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js">
-  </script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
-  </script>
-
-
-
-  {% block js %}
-  {% endblock js %}
-
-
-<!-- Start Footer-->
-
-
-  </body>
-  </html>
+		<!-- End Footer-->
+		<script src="{% static 'js/Chart.js' %}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+			integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+			crossorigin="anonymous"
+		></script>
+		{% block js %} {% endblock js %}
+		<!-- Start Footer-->
+	</body>
+</html>

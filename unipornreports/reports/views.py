@@ -7,9 +7,8 @@ import numpy as np
 from .forms import CSVForm
 import uuid
 from ipware.ip import get_ip
-
-
 from datetime import datetime
+
 def convert_date(date):
     new_date = datetime.strptime(date, '%Y-%m-%d')
     return new_date
@@ -21,10 +20,8 @@ def convert_date2(date):
 def create_report(csv1, csv2):
     file1 = csv1
     file2 = csv2
-
     data=pd.read_csv(file1,encoding='utf-8', skiprows=[1])
     uniporn=pd.DataFrame(data)
-
     datax=pd.read_csv(file2,encoding='utf-8', skiprows=[1])
     uniporn_Posts=pd.DataFrame(datax)
     df = pd.DataFrame(uniporn, columns=['Dlouhodobý Celkový počet To se mi líbí', '28 dní Aktivní uživatelé stránky', '28 dní Celkový dosah',])
@@ -45,26 +42,16 @@ def create_report(csv1, csv2):
     array_celkovy_zobrazeni = df["28 dní Celkový počet zobrazení"].values
     df4 = pd.DataFrame(uniporn_Posts)
     df4.fillna(0, inplace=True)
-    #výpočet stories
     komenty_prispevek = df4['Dlouhodobý Příběhy na příspěvky podle typu akce - comment'].astype(np.float64)
     like_prispevek = df4['Dlouhodobý Příběhy na příspěvky podle typu akce - like'].astype(np.float64)
     share_prispevek = df4['Dlouhodobý Příběhy na příspěvky podle typu akce - share'].astype(np.float64)
-
-    #výpočet consumptions
     play_clicks_prispevek = df4['Dlouhodobý Využití příspěvků podle typu - clicks to play'].astype(np.float64)
     link_clicks_prispevek = df4['Dlouhodobý Využití příspěvků podle typu - link clicks'].astype(np.float64)
     other_clicks_prispevek = df4['Dlouhodobý Využití příspěvků podle typu - other clicks'].astype(np.float64)
     photo_view_clicks_prispevek = df4['Dlouhodobý Využití příspěvků podle typu - photo view'].astype(np.float64)
-
-    #výpočet stories pro příspěvek s jedním ID
     stories_engagement_post = (komenty_prispevek [0] + like_prispevek [0] + share_prispevek [0])
-
-    #výpočet consumptions pro příspěvek s jedním ID
     consumption_engagement_post = (play_clicks_prispevek [0] + link_clicks_prispevek [0] + other_clicks_prispevek [0] + photo_view_clicks_prispevek [0])
-
-    #výpočet engagementu celkem (stories+consumptions) pro příspěvek s jedním ID
     engagement_post = stories_engagement_post + consumption_engagement_post
-
     dosah_prispevek = df4['Dlouhodobý Celkový dosah příspěvku'].astype(np.float64)
     engagement_rate_post = ((engagement_post / dosah_prispevek [0])*100)
     stories_rate_post = ((stories_engagement_post / dosah_prispevek [0])*100)
@@ -116,13 +103,9 @@ def base_view(request):
     user=request.user  # can be anonymous user
     csvs = CSV.objects.filter(ip_address = ip, user = user.id).order_by('-created')[0]
     session=request.session.session_key
-
-    base_url = 'http://127.0.0.1:8000/app/static/media/'
-
-
+    base_url = os.environ('BASE_URL')
     csv1 = base_url + str(csvs.uploaded_csv1)
     csv2 = base_url + str(csvs.uploaded_csv2)
-
     dates = ""
     fans_online = ""
     full_reach = ""
@@ -156,10 +139,6 @@ def base_view(request):
             ctx["full_seen2"] = full_seen
         else:
             pass
-
-
-
-
     return render(request, 'reports/graf.html', ctx)
 
 
@@ -167,7 +146,6 @@ def add_csv(request):
     ip = get_ip(request)
     user = request.user
     if request.method == 'POST':
-
         form = CSVForm(request.POST, request.FILES)
         if form.is_valid():
             csv = CSV.objects.filter(ip_address = ip, user = user.id)
@@ -182,7 +160,6 @@ def add_csv(request):
                 ip_address = get_ip(request)
             )
             csv.save()
-
             return HttpResponseRedirect(reverse('results'))
         else:
             csv = CSV.objects.filter(ip_address = ip, user = user.id)

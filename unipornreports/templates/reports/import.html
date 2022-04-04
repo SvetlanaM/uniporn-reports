@@ -1,44 +1,47 @@
-{% extends 'index.html' %}
-{% load staticfiles %}
-
-{% block content %}
-  <div class = 'container-fluid pink-section' id="report">
-    <div class="container">
-      <div class='row'>
-        <div class="col-md-12 form-container">
-          <form action="" method = "POST" role="form", enctype="multipart/form-data">
-            {% csrf_token %}
-            <br />
-            <div class="row">
-              <div class="col-md-9">
-                Sem vložte svoje CSV z Facebookové stránky. Tohle CSV je o tvojí stránce obecně. Tak to nepopleť prosím! (PAGE)
-              </div>
-              <div class="col-md-2">
-
-                {{ form.uploaded_csv1 }}
-
-              </div>
-            </div>
-            <br />
-            <br />
-            <div class="row">
-              <div class="col-md-9">
-                Sem vložte svoje CSV z Facebookové stránky. Tohle CSV je o příspěvcích publikovaných na tvojí stránce. (POST)
-              </div>
-              <div class="col-md-2">{{ form.uploaded_csv2 }}</div>
-            </div>
-            <br />
-            <div class="row">
-              <div class="col-md-9">
-                Nahráním těchto dvou CSV a následným kliknutím na button "Reportuj!" potvrzuji, že jsem seznámen/a s obchodními podmínkami stránky Uniporn Reports a souhlasím s nimi v jejich plném rozsahu.
-              </div>
-              <div class="col-md-3">
-                <input type="submit" class="submit-btn" value="Reportuj!" />
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+{% extends 'index.html' %} {% load staticfiles %} {% block content %}
+<div class="container-fluid pink-section" id="report">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 form-container">
+				<form
+					action=""
+					method="POST"
+					role="form"
+					,
+					enctype="multipart/form-data"
+				>
+					{% csrf_token %}
+					<br />
+					<div class="row">
+						<div class="col-md-9">
+							Sem vložte svoje CSV z Facebookové stránky. Tohle CSV je o tvojí
+							stránce obecně. Tak to nepopleť prosím! (PAGE)
+						</div>
+						<div class="col-md-2"> {{ form.uploaded_csv1 }} </div>
+					</div>
+					<br />
+					<br />
+					<div class="row">
+						<div class="col-md-9">
+							Sem vložte svoje CSV z Facebookové stránky. Tohle CSV je o
+							příspěvcích publikovaných na tvojí stránce. (POST)
+						</div>
+						<div class="col-md-2">{{ form.uploaded_csv2 }}</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-md-9">
+							Nahráním těchto dvou CSV a následným kliknutím na button
+							"Reportuj!" potvrzuji, že jsem seznámen/a s obchodními podmínkami
+							stránky Uniporn Reports a souhlasím s nimi v jejich plném rozsahu.
+						</div>
+						<div class="col-md-3">
+							<input type="submit" class="submit-btn" value="Reportuj!" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock content %}

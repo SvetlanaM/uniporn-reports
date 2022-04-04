@@ -1,0 +1,6 @@
+venv
+*.pyc
+staticfiles
+.env
+*.3sqlite
+node_modules

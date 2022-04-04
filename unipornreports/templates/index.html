@@ -1,132 +1,165 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
-
-{% block index %}
+{% extends 'base.html' %} {% load staticfiles %} {% block index %}
 <div class="container-fluid yellow-section">
-  <div class="content-center">
-    <img class="unicorn-img" src="{% static 'img/uniporn_slider.png' %}" />
-    <h1 class="main-heading"><span class="blue-heading">UNIPORN</span><br />
-      <span class="purple-heading">REPORTS</span><br />
-      <span class="subheading">REPORTY SOCIALNÍCH SÍTÍ</span>
-    </h1>
-  </div>
+	<div class="content-center">
+		<img class="unicorn-img" src="{% static 'img/uniporn_slider.png' %}" />
+		<h1 class="main-heading"
+			><span class="blue-heading">UNIPORN</span><br />
+			<span class="purple-heading">REPORTS</span><br />
+			<span class="subheading">REPORTY SOCIALNÍCH SÍTÍ</span>
+		</h1>
+	</div>
 </div>
 <div class="container-fluid blue-section" id="manual">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="white-heading">
-          Jak sem nahrát data, aby to vyplivlo ten správnej report?
-        </h2>
-        <p class="info">Aby tahle aplikace šlapala jak má, je tu pár kroků, který musíš udělat. Není jich moc, ale je důležité, aby byly všechny řádně splněny. Jinak by ti tahle apka taky mohla dát nerelevantní data a to nikdo nechce. #ofkórz Připravili jsme pro tebe video návod a vypsali jsme ti tu postup bod po bodu, abys to měl fakt jednoduchý.
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 video-section">
-        <h2 class="white-heading">
-          <br/>
-          Video návod
-        </h2>
-        <iframe
-  src="https://www.youtube.com/embed/rYpIwjHku5U">
-        </iframe>
-      </div>
-      <div class="col-md-6 list-section">
-        <ol class="list-styled">
-          <br/>
-          <br/>
-          <li class="section-item">Jdi na Facebooku na stránku, ke které potřebuješ měsíční report.
-          </li>
-          <li class="section-item">Na této stránce jdi na Přehledy.
-          </li>
-          <li class="section-item">Až se ti načtou Přehledy, klikni na "Exportovat data".
-          </li>
-          <li class="section-item">Vyber "Údaje o stránce", období "Minulý měsíc", formát CSV.
-          </li>
-          <li class="section-item">Vyber "Údaje o příspěvku". Období "Minulý měsíc", formát CSV.
-          </li>
-          <li class="section-item">Teď už máš připravené všechny podklady k našemu reportu!
-          </li>
-        </ol>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="white-heading">
+					Jak sem nahrát data, aby to vyplivlo ten správnej report?
+				</h2>
+				<p class="info"
+					>Aby tahle aplikace šlapala jak má, je tu pár kroků, který musíš
+					udělat. Není jich moc, ale je důležité, aby byly všechny řádně
+					splněny. Jinak by ti tahle apka taky mohla dát nerelevantní data a to
+					nikdo nechce. #ofkórz Připravili jsme pro tebe video návod a vypsali
+					jsme ti tu postup bod po bodu, abys to měl fakt jednoduchý.
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 video-section">
+				<h2 class="white-heading">
+					<br />
+					Video návod
+				</h2>
+				<iframe src="https://www.youtube.com/embed/rYpIwjHku5U"> </iframe>
+			</div>
+			<div class="col-md-6 list-section">
+				<ol class="list-styled">
+					<br />
+					<br />
+					<li class="section-item"
+						>Jdi na Facebooku na stránku, ke které potřebuješ měsíční report.
+					</li>
+					<li class="section-item">Na této stránce jdi na Přehledy. </li>
+					<li class="section-item"
+						>Až se ti načtou Přehledy, klikni na "Exportovat data".
+					</li>
+					<li class="section-item"
+						>Vyber "Údaje o stránce", období "Minulý měsíc", formát CSV.
+					</li>
+					<li class="section-item"
+						>Vyber "Údaje o příspěvku". Období "Minulý měsíc", formát CSV.
+					</li>
+					<li class="section-item"
+						>Teď už máš připravené všechny podklady k našemu reportu!
+					</li>
+				</ol>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- End Navod-->
-{% endblock index %}
-
-{% block index2 %}
-
+{% endblock index %} {% block index2 %}
 
 <div class="container-fluid blue-section" id="about">
-  <div class="container">
-    <div class="row box-section">
-      <div class="col-md-6 contact">
-        <div class="col-md-4">
-          <img src="{% static 'img/andrea.png' %}" class="img-responsive img-circle img-user" />
-          <ul class="list-inline social-icons">
-              <li class="fb"><img src="{% static 'img/facebook_ruzovy.png' %}" /></li>
-              <li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
-              <li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
-          </ul>
-        </div>
-        <div class="col-md-5">
-          <h4 class="person-name">Andrea Bubnikova</h4>
-          <p class="person-desc">idea maker</p>
-          <p class="person-desc2">Dostatečně nasranej blázen, aby ho napadlo udělat vlastní apku, která ušetří čas a nervy.</p>
-        </div>
-      </div>
+	<div class="container">
+		<div class="row box-section">
+			<div class="col-md-6 contact">
+				<div class="col-md-4">
+					<img
+						src="{% static 'img/andrea.png' %}"
+						class="img-responsive img-circle img-user"
+					/>
+					<ul class="list-inline social-icons">
+						<li class="fb"
+							><img src="{% static 'img/facebook_ruzovy.png' %}"
+						/></li>
+						<li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
+						<li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
+					</ul>
+				</div>
+				<div class="col-md-5">
+					<h4 class="person-name">Andrea Bubnikova</h4>
+					<p class="person-desc">idea maker</p>
+					<p class="person-desc2"
+						>Dostatečně nasranej blázen, aby ho napadlo udělat vlastní apku,
+						která ušetří čas a nervy.</p
+					>
+				</div>
+			</div>
 
-      <div class="col-md-6 contact">
-        <div class="col-md-4">
-          <img src="{% static 'img/sveta.jpg' %}" class="img-responsive img-circle img-user" />
-          <ul class="list-inline social-icons">
-              <li class="fb"><img src="{% static 'img/facebook_ruzovy.png' %}" /></li>
-              <li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
-              <li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
-          </ul>
-        </div>
-        <div class="col-md-5">
-          <h4 class="person-name">Svetlana Margetová</h4>
-          <p class="person-desc">programátorský bůh</p>
-          <p class="person-desc2">Sveťa vdechla celé téhle apce život. Jsem moc vděčná za všechnu tu odvedenou práci na UR.</p>
-        </div>
-      </div>
+			<div class="col-md-6 contact">
+				<div class="col-md-4">
+					<img
+						src="{% static 'img/sveta.jpg' %}"
+						class="img-responsive img-circle img-user"
+					/>
+					<ul class="list-inline social-icons">
+						<li class="fb"
+							><img src="{% static 'img/facebook_ruzovy.png' %}"
+						/></li>
+						<li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
+						<li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
+					</ul>
+				</div>
+				<div class="col-md-5">
+					<h4 class="person-name">Svetlana Margetová</h4>
+					<p class="person-desc">programátorský bůh</p>
+					<p class="person-desc2"
+						>Sveťa vdechla celé téhle apce život. Jsem moc vděčná za všechnu tu
+						odvedenou práci na UR.</p
+					>
+				</div>
+			</div>
 
-      <div class="col-md-6 contact">
-        <div class="col-md-4">
-          <img src="{% static 'img/jan.jpg' %}" class="img-responsive img-circle img-user" />
-          <ul class="list-inline social-icons">
-              <li class="fb"><img src="{% static 'img/facebook_ruzovy.png' %}" /></li>
-              <li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
-              <li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
-          </ul>
-        </div>
-        <div class="col-md-5">
-          <h4 class="person-name">Jan Bím</h4>
-          <p class="person-desc">grafický designer</p>
-          <p class="person-desc2">Též známý jako Chuckebono. Jeden z nejšikovnějších lidí na takovéto nápady a designy.</p>
-        </div>
-      </div>
+			<div class="col-md-6 contact">
+				<div class="col-md-4">
+					<img
+						src="{% static 'img/jan.jpg' %}"
+						class="img-responsive img-circle img-user"
+					/>
+					<ul class="list-inline social-icons">
+						<li class="fb"
+							><img src="{% static 'img/facebook_ruzovy.png' %}"
+						/></li>
+						<li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
+						<li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
+					</ul>
+				</div>
+				<div class="col-md-5">
+					<h4 class="person-name">Jan Bím</h4>
+					<p class="person-desc">grafický designer</p>
+					<p class="person-desc2"
+						>Též známý jako Chuckebono. Jeden z nejšikovnějších lidí na takovéto
+						nápady a designy.</p
+					>
+				</div>
+			</div>
 
-      <div class="col-md-6 contact">
-        <div class="col-md-4">
-          <img src="{% static 'img/socialsharks.png' %}" class="img-responsive img-circle img-user" />
-          <ul class="list-inline social-icons text-center">
-              <li class="fb"><img src="{% static 'img/facebook_ruzovy.png' %}" /></li>
-              <li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
-              <li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
-          </ul>
-        </div>
-        <div class="col-md-5">
-          <h4 class="person-name">Socialsharks </h4>
-          <p class="person-desc">Social Media agentura</p>
-          <p class="person-desc2">Bez mých znalostí z akvárka by mě ani nenapadlo takovou apku dělat!</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
+			<div class="col-md-6 contact">
+				<div class="col-md-4">
+					<img
+						src="{% static 'img/socialsharks.png' %}"
+						class="img-responsive img-circle img-user"
+					/>
+					<ul class="list-inline social-icons text-center">
+						<li class="fb"
+							><img src="{% static 'img/facebook_ruzovy.png' %}"
+						/></li>
+						<li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
+						<li><img src="{% static 'img/linkedin_ruzovy.png' %}" /></li>
+					</ul>
+				</div>
+				<div class="col-md-5">
+					<h4 class="person-name">Socialsharks </h4>
+					<p class="person-desc">Social Media agentura</p>
+					<p class="person-desc2"
+						>Bez mých znalostí z akvárka by mě ani nenapadlo takovou apku
+						dělat!</p
+					>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock index2 %}

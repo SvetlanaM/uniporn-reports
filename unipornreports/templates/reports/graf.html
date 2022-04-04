@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-
 {% block content %}
 
 <div class="container-fluid header">
@@ -9,112 +8,101 @@
       REPORT FCB STRÁNKY UNICREDIT BANK ZA MINULÝ MĚSÍC</h2>
   </div>
 </div>
+
 <div class="wrapper container">
-<div class="fans">
-  <div class="col-md-12 pull-left report-box">
-    <h3 class="report-heading">Fanoušci stránky</h3>
-  </div>
-  <div class="col-md-6 graph-part">
-    <div class="col-md-6 report1 text-center">
-      <span class="number text-center">{{ fans_sum }}</span> <br />
-      fanoušků celkem
+  <div class="fans">
+    <div class="col-md-12 pull-left report-box">
+      <h3 class="report-heading">Fanoušci stránky</h3>
     </div>
-    <div class="col-md-6 report1 text-center">
-      <span class="number text-center">{{ fans_progres }}</span><br />
-      nárůst fanoušků
+    <div class="col-md-6 graph-part">
+      <div class="col-md-6 report1 text-center">
+        <span class="number text-center">{{ fans_sum }}</span> <br />
+        fanoušků celkem
+      </div>
+      <div class="col-md-6 report1 text-center">
+        <span class="number text-center">{{ fans_progres }}</span><br />
+        nárůst fanoušků
+      </div>
+    </div>
+    <div class="col-md-6 graph-part">
+      <canvas id="myChart" height="200"></canvas>
     </div>
   </div>
-  <div class="col-md-6 graph-part">
-    <canvas id="myChart" height="200"></canvas>
+
+  <div class="fans">
+    <div class="col-md-12 pull-left report-box">
+      <h3 class="report-heading">Denně fnoušci online na Facebooku během období</h3>
+    </div>
+    <div class="col-md-6 graph-part">
+      <p class="report-text"><b>Znejte svou komunitu. Agentuře důvěřuj, ale prověřuj..</b> </br> Kromě znalosti jejich zájmů, demografických informací a jejich pohlaví nám Facebook též dokáže říct i kolik našich fanoušků denně je online. To přece vědět nepotřebuju, říkáte si. No. Pokud máte opravdu velké číslo fanoušků a přijde vám jejich nárůst až příliš podezřelý, díky této informaci zjistíte, zda vašimi fanoušky nejsou nakoupení jednorázový uživatelé nebo boti. Takový fanoušek je komoditou zcela k ničemu.</p>
+    </div>
+    <div class="col-md-6 graph-part">
+      <canvas id="myChartOnline" height="200"></canvas>
+    </div>
   </div>
+
+  <div class="fans">
+    <div class="col-md-12 pull-left report-box">
+      <h3 class="report-heading">Zobrazení obsahu stránky vs. unikátní dosah</h3>
+    </div>
+    <div class="col-md-6 graph-part">
+      <p class="report-text"><b>Jaký skok mezi zobrazením a zásahem ok? </b></br> Rozdíl mezi zobrazením stránky a dosahem na unikátní uživatele je celkem jasný. Pokud máme zobrazení ve frekvenci 1, je pak samozřejmě číslo zobrazení a dosahu totožné. Často se ale stává, že je frekvence vyšší, než je potřeba. Díky tomuto grafu si můžete čeknout, jestli je to pro vás ještě ok nebo již ne. Ideálně by měl být graf se zobrazením stejný (fr.1) nebo vyšší né o příliš velký skok.</p>
+    </div>
+    <div class="col-md-6 graph-part">
+      <canvas id="myChart6" height="200"></canvas>
+    </div>
+  </div>
+
+  <div class="fans">
+    <div class="col-md-12 pull-left report-box">
+      <h3 class="report-heading">Výsledky publikovaných postů <b>TOP 5</b></h3>
+    </div>
+    <div class="col-md-6 image-part">
+      <script src="//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.5"
+          async></script>
+      <div class="fb-post"
+          data-href="{{ post_image }}"
+          data-width="500"></div>
+    </div>
+    <div class="col-md-6 graph-part">
+      <p class="data"><span class="number2">{{ eng_rate_post | floatformat:-2 }} % </span>ENGAGEMENT rate</p>
+      <p class="data"><span class="number2">{{ stories_rate_post | floatformat:-2 }} % </span>STORIES rate</p>
+      <p class="data"><span class="number2">{{ cons_rate_post | floatformat:-2 }} % </span>CONSUMPTION rate</p>
+      <ul class="list-inline mini-data">
+        <li><img src="{% static 'img/calendar-icon.png' %}" />{{ story_date }}</li>
+        <li><img src="{% static 'img/char-icon.png' %}" />{{ story_len }} znaku</li>
+        <li><img src="{% static 'img/box-icon.png' %}" />{{ type }} type</li>
+      </ul>
+    </div>
+    <div class="col-md-12 eng-part text-center">
+      <p>{{ eng_post }} engagment celkem</p>
+      <ul class="list-inline mini-data">
+        <li>{{ story_comment  | floatformat:-2 }}  % komentovatelnost</li>
+        <li>{{ story_click  | floatformat:-2 }} % klikatelnost</li>
+        <li>{{ story_share  | floatformat:-2 }} % sdílitelnost</li>
+        <li>{{ story_fav  | floatformat:-2 }} % oblíbenost</li>
+      </ul>
+    </div>
+    <div class="col-md-6 graph-part">
+      <canvas id="myChart4" height="200"></canvas>
+    </div>
+    <div class="col-md-6 graph-part">
+      <canvas id="myChart7" height="200"></canvas>
+    </div>
+  </div>
+
+  <input type="hidden" id="myVar" name="variable" value="{{ dates2 | safe}}">
+  <input type="hidden" id="myVar7" name="variable" value="{{ fans_all2 | safe}}">
+  <input type="hidden" id="myVar2" name="variable" value="{{ fans_online2 | safe }}">
+  <input type="hidden" id="myVar3" name="variable" value="{{ pay_reach | safe }}">
+  <input type="hidden" id="myVar4" name="variable" value="{{ organic_reach | safe }}">
+  <input type="hidden" id="myVar5" name="variable" value="{{ full_reach2 | safe }}">
+  <input type="hidden" id="myVar6" name="variable" value="{{ full_seen2 | safe }}">
+  <input type="hidden" id="myVar8" name="variable" value="{{ zobrazeniorganicky_prispevek | safe }}">
+  <input type="hidden" id="myVar9" name="variable" value="{{ zobrazeniorganicky_prispevek2 | safe }}">
 </div>
-
-<div class="fans">
-  <div class="col-md-12 pull-left report-box">
-    <h3 class="report-heading">Denně fnoušci online na Facebooku během období</h3>
-  </div>
-  <div class="col-md-6 graph-part">
-    <p class="report-text"><b>Znejte svou komunitu. Agentuře důvěřuj, ale prověřuj..</b> </br> Kromě znalosti jejich zájmů, demografických informací a jejich pohlaví nám Facebook též dokáže říct i kolik našich fanoušků denně je online. To přece vědět nepotřebuju, říkáte si. No. Pokud máte opravdu velké číslo fanoušků a přijde vám jejich nárůst až příliš podezřelý, díky této informaci zjistíte, zda vašimi fanoušky nejsou nakoupení jednorázový uživatelé nebo boti. Takový fanoušek je komoditou zcela k ničemu.</p>
-  </div>
-  <div class="col-md-6 graph-part">
-    <canvas id="myChartOnline" height="200"></canvas>
-  </div>
-</div>
-
-<div class="fans">
-  <div class="col-md-12 pull-left report-box">
-    <h3 class="report-heading">Zobrazení obsahu stránky vs. unikátní dosah</h3>
-  </div>
-  <div class="col-md-6 graph-part">
-    <p class="report-text"><b>Jaký skok mezi zobrazením a zásahem ok? </b></br> Rozdíl mezi zobrazením stránky a dosahem na unikátní uživatele je celkem jasný. Pokud máme zobrazení ve frekvenci 1, je pak samozřejmě číslo zobrazení a dosahu totožné. Často se ale stává, že je frekvence vyšší, než je potřeba. Díky tomuto grafu si můžete čeknout, jestli je to pro vás ještě ok nebo již ne. Ideálně by měl být graf se zobrazením stejný (fr.1) nebo vyšší né o příliš velký skok.</p>
-  </div>
-  <div class="col-md-6 graph-part">
-    <canvas id="myChart6" height="200"></canvas>
-  </div>
-</div>
-
-<div class="fans">
-  <div class="col-md-12 pull-left report-box">
-    <h3 class="report-heading">Výsledky publikovaných postů <b>TOP 5</b></h3>
-  </div>
-  <div class="col-md-6 image-part">
-    <script src="//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.5"
-        async></script>
-    <div class="fb-post"
-        data-href="{{ post_image }}"
-        data-width="500"></div>
-  </div>
-  <div class="col-md-6 graph-part">
-    <p class="data"><span class="number2">{{ eng_rate_post | floatformat:-2 }} % </span>ENGAGEMENT rate</p>
-    <p class="data"><span class="number2">{{ stories_rate_post | floatformat:-2 }} % </span>STORIES rate</p>
-    <p class="data"><span class="number2">{{ cons_rate_post | floatformat:-2 }} % </span>CONSUMPTION rate</p>
-    <ul class="list-inline mini-data">
-      <li><img src="{% static 'img/calendar-icon.png' %}" />{{ story_date }}</li>
-      <li><img src="{% static 'img/char-icon.png' %}" />{{ story_len }} znaku</li>
-      <li><img src="{% static 'img/box-icon.png' %}" />{{ type }} type</li>
-    </ul>
-  </div>
-  <div class="col-md-12 eng-part text-center">
-    <p>{{ eng_post }} engagment celkem</p>
-    <ul class="list-inline mini-data">
-      <li>{{ story_comment  | floatformat:-2 }}  % komentovatelnost</li>
-      <li>{{ story_click  | floatformat:-2 }} % klikatelnost</li>
-      <li>{{ story_share  | floatformat:-2 }} % sdílitelnost</li>
-      <li>{{ story_fav  | floatformat:-2 }} % oblíbenost</li>
-    </ul>
-  </div>
-  <div class="col-md-6 graph-part">
-    <canvas id="myChart4" height="200"></canvas>
-  </div>
-  <div class="col-md-6 graph-part">
-    <canvas id="myChart7" height="200"></canvas>
-
-  </div>
-</div>
-
-
-
-<input type="hidden" id="myVar" name="variable" value="{{ dates2 | safe}}">
-<input type="hidden" id="myVar7" name="variable" value="{{ fans_all2 | safe}}">
-<input type="hidden" id="myVar2" name="variable" value="{{ fans_online2 | safe }}">
-<input type="hidden" id="myVar3" name="variable" value="{{ pay_reach | safe }}">
-<input type="hidden" id="myVar4" name="variable" value="{{ organic_reach | safe }}">
-<input type="hidden" id="myVar5" name="variable" value="{{ full_reach2 | safe }}">
-<input type="hidden" id="myVar6" name="variable" value="{{ full_seen2 | safe }}">
-<input type="hidden" id="myVar8" name="variable" value="{{ zobrazeniorganicky_prispevek | safe }}">
-<input type="hidden" id="myVar9" name="variable" value="{{ zobrazeniorganicky_prispevek2 | safe }}">
-</div>
-
-
 {% endblock content %}
-
-
-
 {% block js %}
-
-
-
-
 <script>
 var a = document.getElementById("myVar").value
 a = a.split(",")
@@ -264,11 +252,11 @@ var myChart = new Chart(ctx, {
 
 });
 </script>
+
 <script>
 var a = document.getElementById("myVar").value
 a = a.split(",")
 a = a.slice(2)
-console.log(a)
 var b = document.getElementById("myVar5").value
 b = b.split(",")
 b = b.slice(2)
